@@ -14,3 +14,4 @@ src/job_portal/__pycache__/wsgi.cpython-313.pyc
 src/root/__pycache__/__init__.cpython-313.pyc
 src/root/__pycache__/urls.cpython-313.pyc
 src/root/__pycache__/views.cpython-313.pyc
+src/accounts/__pycache__/auth_backend.cpython-313.pyc
