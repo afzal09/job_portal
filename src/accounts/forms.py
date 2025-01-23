@@ -1,4 +1,5 @@
 from django import forms
+from django.forms.utils import ErrorList
 
 class Register_form(forms.Form):
     name = forms.CharField(

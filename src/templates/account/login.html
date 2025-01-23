@@ -11,11 +11,21 @@
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="" class="mb-2">Email*</label>
+                            {% if form.email.errors %}
+                            <input type="text" name="email" id="email" class="form-control is-invalid" placeholder="example@example.com">
+                            <p class="invalid-feedback">{{ form.email.errors|striptags }}</p>
+                            {% else %}
                             <input type="text" name="email" id="email" class="form-control" placeholder="example@example.com">
+                            {% endif %}  
                         </div> 
                         <div class="mb-3">
                             <label for="" class="mb-2">Password*</label>
+                            {% if form.password.errors %}
+                            <input type="password" name="password" id="password" class="form-control is-invalid" placeholder="Enter Password">
+                            <p class="invalid-feedback">{{ form.password.errors|striptags }}</p>
+                            {% else %}
                             <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password">
+                            {% endif %} 
                         </div> 
                         <div class="justify-content-between d-flex">
                         <button class="btn btn-primary mt-2">Login</button>
@@ -55,3 +65,9 @@
   </div>
 </div>
 {% endblock main %}
+{% block customStyle %}
+<style>
+    .error-feedback{
+        color: #e63946;
+    }
+{% endblock customStyle %}

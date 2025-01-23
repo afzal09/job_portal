@@ -55,20 +55,15 @@ def register_process(request):
 def account_login(request):
     if request.method == 'POST':
         form = Login_form(request.POST)
-        print
         if form.is_valid():
             email = request.POST.get('email')
             password = request.POST.get('password')
             user = EmailBackend.authenticate(request,email,password)
-            print(user)
             if user is not None:
                 login(request,user)
                 return redirect('account_profile')
         else:
-            return JsonResponse({
-                'status':'failed',
-                'error':form.errors
-            })
+            return render(request,"account/login.html",{'form':form})
 
     return render(request,'account/login.html',{})
 
